@@ -1,0 +1,55 @@
+---
+import RootLayout from "@/layouts/RootLayout.astro";
+import Tree from "@/components/Tree/Tree.astro";
+import SectionCard from "@/components/SectionCard.astro";
+---
+
+<RootLayout title="Gabriella Cardoso">
+  <div
+    class="relative z-10 max-w-screen-sm md:mx-auto mx-md flex flex-col gap-[100px]"
+  >
+    <div class="h-screen"></div>
+    <SectionCard>
+      <p>Happy 26 months to us baby!</p>
+      <p>
+        This is a little something I made for you. I hope you like it. We'll
+        work on it together and make it really awesome. Every diplomat needs
+        their own personal website!
+      </p>
+      <p>
+        I’ve missed you so much for the past 2 months. Life does feel like it’s
+        on hard mode now but we’re gonna get through this and even come out
+        stronger 💪🏽
+      </p>
+      <p>
+        I wish you could be in Sydney so we could live out of home together but
+        the time will come!
+      </p>
+      <p>
+        I’m so excited for this chapter of your life baby. I know you’re gonna
+        do so many impressive things. You just have to believe!
+      </p>
+      <p>Love,</p>
+      <p class="mb-0">Lu</p>
+    </SectionCard>
+    <SectionCard>
+      <h2>Bio</h2>
+      <p>A short bio on me. Where I'm from, where I studied where I am now</p>
+    </SectionCard>
+    <SectionCard>
+      <h2>My Work</h2>
+      <strong>Project name</strong>
+      <p>Description of what I did</p>
+      <strong>Project name</strong>
+      <p>Description of what I did</p>
+      <strong>Project name</strong>
+      <p>Description of what I did</p>
+    </SectionCard>
+    <SectionCard>
+      <h2>Blog</h2>
+      <p>Coming soon. A place where I can show off my ideas</p>
+      <!-- TODO: Is there a substack API for the CMS? -->
+    </SectionCard>
+  </div>
+  <Tree />
+</RootLayout>

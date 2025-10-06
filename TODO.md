@@ -1,0 +1,5 @@
+- bun create astro site
+- Load a 3D loveheart with threejs (copy-paste geophytes as template)
+- Add on scroll animations to bring the heart to life
+- Choose stylish serif font for 'classy proffesionalism'
+- Mobile first then desktop view
