@@ -14,31 +14,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: "package.json"
-          cache: "pnpm"
+          node-version-file: ".nvmrc"
+          cache: "bun"
 
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
 
       - name: Build
-        run: pnpm run build
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: bun run build
 
       - name: Run tests
-        run: pnpm test
+        run: bun test
 
       - name: Check formatting
-        run: pnpm run format
+        run: bun run format
 
       - name: Run linting
-        run: pnpm run lint
+        run: bun run lint
