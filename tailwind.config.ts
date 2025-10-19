@@ -29,6 +29,7 @@ export default {
           "950": "#121212",
         },
         ivory: "#f5f5f5",
+        theme: "var(--bg-theme)",
       },
       fontFamily: {
         serif: ["Times New Roman", ...defaultTheme.fontFamily.serif],

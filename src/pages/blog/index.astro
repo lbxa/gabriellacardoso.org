@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import RootLayout from "@/layouts/RootLayout.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import Nav from "@/components/Nav.astro";
+
+const allPosts = await getCollection("blog");
+const sortedPosts = allPosts.sort((a, b) => {
+  return b.data.date.getTime() - a.data.date.getTime();
+});
+---
+
+<RootLayout title="Blog - Gabriella Cardoso">
+  <Nav />
+  <div class="max-w-screen-lg mx-auto px-md sm:px-2xl py-xl">
+    <h1 class="text-5xl font-bold mb-xl">Blog</h1>
+    <div class="grid gap-lg">
+      {
+        sortedPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.slug}
+          />
+        ))
+      }
+    </div>
+  </div>
+</RootLayout>

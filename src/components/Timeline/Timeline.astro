@@ -1,0 +1,26 @@
+---
+import TimelineItem from "./TimelineItem.astro";
+
+interface TimelineItemData {
+  title: string;
+  description: string;
+  isCurrent?: boolean;
+}
+
+interface Props {
+  items: TimelineItemData[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="relative">
+  <div
+    class="absolute left-[8.5px] top-[10px] bottom-10 w-[3px] bg-gray-300 dark:bg-gray-600 transition-none"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="relative">
+    {items.map((item) => <TimelineItem {...item} />)}
+  </div>
+</div>

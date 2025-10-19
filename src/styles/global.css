@@ -1,114 +1,318 @@
 /* fonts */
+
+/* Inter */
+
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Inter";
   src:
-    local("Neue Montreal"),
-    url("/fonts/NeueMontreal/NeueMontreal-Regular.otf") format("opentype");
-  font-weight: 400;
+    local("Inter"),
+    url("/fonts/Inter/Inter-Thin.ttf") format("truetype");
+  font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Inter";
   src:
-    local("Neue Montreal"),
-    url("/fonts/NeueMontreal/NeueMontreal-Italic.otf") format("opentype");
-  font-weight: 400;
+    local("Inter"),
+    url("/fonts/Inter/Inter-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Inter";
   src:
-    local("Neue Montreal"),
-    url("/fonts/NeueMontreal/NeueMontreal-Bold.otf") format("opentype");
-  font-weight: 700;
+    local("Inter"),
+    url("/fonts/Inter/Inter-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Inter";
   src:
-    local("Neue Montreal"),
-    url("/fonts/NeueMontreal/NeueMontreal-BoldItalic.otf") format("opentype");
-  font-weight: 700;
+    local("Inter"),
+    url("/fonts/Inter/Inter-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Inter";
   src:
-    local("Neue Montreal"),
-    url("/fonts/NeueMontreal/NeueMontreal-Light.otf") format("opentype");
+    local("Inter"),
+    url("/fonts/Inter/Inter-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Inter";
   src:
-    local("Neue Montreal"),
-    url("/fonts/NeueMontreal/NeueMontreal-LightItalic.otf") format("opentype");
+    local("Inter"),
+    url("/fonts/Inter/Inter-LightItalic.ttf") format("truetype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Inter";
   src:
-    local("Neue Montreal"),
-    url("/fonts/NeueMontreal/NeueMontreal-Medium.otf") format("opentype");
+    local("Inter"),
+    url("/fonts/Inter/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src:
+    local("Inter"),
+    url("/fonts/Inter/Inter-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src:
+    local("Inter"),
+    url("/fonts/Inter/Inter-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Inter";
   src:
-    local("Neue Montreal"),
-    url("/fonts/NeueMontreal/NeueMontreal-MediumItalic.otf") format("opentype");
+    local("Inter"),
+    url("/fonts/Inter/Inter-MediumItalic.ttf") format("truetype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 
-/* Signifier - Critical fonts only */
-
 @font-face {
-  font-family: "Signifier";
+  font-family: "Inter";
   src:
-    local("Signifier"),
-    url("/fonts/Signifier/Signifier-Light.otf") format("opentype");
-  font-weight: 300;
+    local("Inter"),
+    url("/fonts/Inter/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Signifier";
+  font-family: "Inter";
   src:
-    local("Signifier"),
-    url("/fonts/Signifier/Signifier-Regular.otf") format("opentype");
-  font-weight: 400;
+    local("Inter"),
+    url("/fonts/Inter/Inter-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src:
+    local("Inter"),
+    url("/fonts/Inter/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Signifier";
+  font-family: "Inter";
   src:
-    local("Signifier"),
-    url("/fonts/Signifier/Signifier-Black.otf") format("opentype");
+    local("Inter"),
+    url("/fonts/Inter/Inter-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src:
+    local("Inter"),
+    url("/fonts/Inter/Inter-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src:
+    local("Inter"),
+    url("/fonts/Inter/Inter-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src:
+    local("Inter"),
+    url("/fonts/Inter/Inter-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src:
+    local("Inter"),
+    url("/fonts/Inter/Inter-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Playfair Display */
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local("Playfair Display"),
+    url("/fonts/Playfair/PlayfairDisplay-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* CSS Variables */
+:root {
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  --bg-theme: #ffffff;
+}
+
+:root.dark {
+  --bg-theme: #1f2937;
 }
 
 /* reset.css */
@@ -122,10 +326,11 @@
 }
 
 html {
-  font-family: "Signifier", "Times New Roman", Times, serif;
+  font-family: var(--font-body);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   height: -webkit-fill-available;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -169,26 +374,32 @@ h6 {
 
 h1 {
   @apply text-4xl my-xl;
+  font-family: var(--font-heading);
 }
 
 h2 {
   @apply text-3xl my-lg;
+  font-family: var(--font-heading);
 }
 
 h3 {
   @apply text-2xl my-md;
+  font-family: var(--font-heading);
 }
 
 h4 {
   @apply text-xl my-sm;
+  font-family: var(--font-heading);
 }
 
 h5 {
   @apply text-lg my-sm;
+  font-family: var(--font-heading);
 }
 
 h6 {
   @apply text-base my-sm;
+  font-family: var(--font-heading);
 }
 
 p {

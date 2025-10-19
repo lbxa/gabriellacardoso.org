@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string;
+  label: string;
+}
+
+const { href, label } = Astro.props;
+---
+
+<li class="m-0">
+  <a
+    href={href}
+    class="relative block px-md py-sm no-underline text-gray-700 dark:text-gray-200 font-medium transition-colors duration-300 active:scale-[0.98] overflow-hidden group"
+  >
+    <span
+      class="relative z-10 group-hover:text-gray-900 dark:group-hover:text-gray-900 transition-colors duration-300"
+    >
+      {label}
+    </span>
+    <span
+      class="absolute bottom-0 left-0 w-full h-0 bg-white transition-all duration-300 ease-out group-hover:h-full -z-0"
+    ></span>
+  </a>
+</li>

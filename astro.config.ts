@@ -7,7 +7,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://geophytes.com",
+  site: "https://gabriellacardoso.org",
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "viewport",
@@ -23,9 +23,12 @@ export default defineConfig({
   integrations: [
     tailwind(),
     react({
-      include: "**/react/*.tsx",
+      include: ["**/react/**/*.tsx"],
     }),
-    solidJs(),
+    solidJs({
+      include: ["**/solid/**/*.tsx"],
+      exclude: ["**/react/**/*"],
+    }),
     icon({ iconDir: "src/assets/icons" }),
     mdx(),
   ],

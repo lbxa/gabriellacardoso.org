@@ -1,42 +1,80 @@
 ---
+import { getCollection } from "astro:content";
 import RootLayout from "@/layouts/RootLayout.astro";
-import Tree from "@/components/Tree/Tree.astro";
 import SectionCard from "@/components/SectionCard.astro";
+import Nav from "@/components/Nav.astro";
+import Timeline from "@/components/Timeline/Timeline.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import BlogModal from "@/components/react/BlogModal";
+
+const allPosts = await getCollection("blog");
+const latestPosts = allPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+// Prepare post data for React modal
+const postsData = allPosts.map((post) => {
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(post.data.date);
+
+  return {
+    slug: post.slug,
+    title: post.data.title,
+    description: post.data.description,
+    author: post.data.author,
+    date: post.data.date.toISOString(),
+    formattedDate,
+  };
+});
+
+// Render content components server-side
+const renderedPosts = await Promise.all(
+  allPosts.map(async (post) => {
+    const { Content } = await post.render();
+    return { slug: post.slug, Content };
+  }),
+);
 ---
 
 <RootLayout title="Gabriella Cardoso">
-  <div
-    class="relative z-10 max-w-screen-sm md:mx-auto mx-md flex flex-col gap-[100px]"
-  >
-    <div class="h-screen"></div>
-    <SectionCard>
-      <p>Happy 26 months to us baby!</p>
-      <p>
-        This is a little something I made for you. I hope you like it. We'll
-        work on it together and make it really awesome. Every diplomat needs
-        their own personal website!
+  <!-- <Nav /> -->
+  <div class="flex flex-col">
+    <SectionCard id="about">
+      <h2>Hi there, I'm Gabriella</h2>
+      <p class="text-xl">
+        I'm living my dream fighting corruption, ensuring states independence/
+        self suffiency not in depedency - strengthening communities through
+        grassroots.
       </p>
-      <p>
-        I’ve missed you so much for the past 2 months. Life does feel like it’s
-        on hard mode now but we’re gonna get through this and even come out
-        stronger 💪🏽
-      </p>
-      <p>
-        I wish you could be in Sydney so we could live out of home together but
-        the time will come!
-      </p>
-      <p>
-        I’m so excited for this chapter of your life baby. I know you’re gonna
-        do so many impressive things. You just have to believe!
-      </p>
-      <p>Love,</p>
-      <p class="mb-0">Lu</p>
     </SectionCard>
     <SectionCard>
       <h2>Bio</h2>
       <p>A short bio on me. Where I'm from, where I studied where I am now</p>
     </SectionCard>
-    <SectionCard>
+    <SectionCard id="education">
+      <h2>Education</h2>
+      <Timeline
+        items={[
+          {
+            title: "University name",
+            description: "Description of what I studied",
+            isCurrent: true,
+          },
+          {
+            title: "University name",
+            description: "Description of what I studied",
+          },
+          {
+            title: "University name",
+            description: "Description of what I studied",
+          },
+        ]}
+      />
+    </SectionCard>
+    <SectionCard id="experience">
       <h2>My Work</h2>
       <strong>Project name</strong>
       <p>Description of what I did</p>
@@ -45,11 +83,56 @@ import SectionCard from "@/components/SectionCard.astro";
       <strong>Project name</strong>
       <p>Description of what I did</p>
     </SectionCard>
-    <SectionCard>
+    <SectionCard id="writing">
       <h2>Blog</h2>
+      <div class="grid gap-md mb-md">
+        {
+          latestPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              slug={post.slug}
+            />
+          ))
+        }
+      </div>
+      <a
+        href="/blog"
+        class="inline-block text-blue-600 hover:text-blue-800 font-medium"
+      >
+        View all posts →
+      </a>
+    </SectionCard>
+    <SectionCard id="skills">
+      <h2>Skills</h2>
+      <p>Coming soon. A place where I can show off my ideas</p>
+      <!-- TODO: Is there a substack API for the CMS? -->
+    </SectionCard>
+    <SectionCard id="contact">
+      <h2>Contact</h2>
       <p>Coming soon. A place where I can show off my ideas</p>
       <!-- TODO: Is there a substack API for the CMS? -->
     </SectionCard>
   </div>
-  <Tree />
+
+  <!-- Hidden server-rendered blog content -->
+  <div id="blog-content-store" class="hidden">
+    {
+      renderedPosts.map(({ slug, Content }) => (
+        <div id={`blog-content-${slug}`} class="prose prose-lg max-w-none">
+          <Content />
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Blog Modal - React Component -->
+  <BlogModal client:only="react" posts={postsData} />
 </RootLayout>
+
+<style>
+  p:last-child {
+    margin-bottom: 0;
+  }
+</style>

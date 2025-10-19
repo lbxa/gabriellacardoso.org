@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  isCurrent?: boolean;
+}
+const { title, description, isCurrent = false } = Astro.props;
+---
+
+<div class="flex gap-6 relative">
+  <div class="flex flex-col items-center flex-shrink-0">
+    <div
+      class={`w-5 h-5 rounded-full border-[3px] transition-none ${
+        isCurrent
+          ? "border-theme bg-theme animate-pulse-dot"
+          : "border-gray-400 bg-white dark:bg-gray-800"
+      }`}
+    >
+    </div>
+  </div>
+  <div class="pb-10 flex-1 -mt-0.5">
+    <strong class="text-lg block mb-1 leading-tight">{title}</strong>
+    <p class="text-gray-700 dark:text-gray-300 m-0 transition-none">
+      {description}
+    </p>
+  </div>
+</div>
+
+<style>
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 var(--bg-theme);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+  }
+
+  .animate-pulse-dot {
+    animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
