@@ -131,7 +131,10 @@ export default function BlogModal({ posts }: BlogModalProps) {
   const closeModal = () => {
     setIsOpen(false);
     setCurrentSlug(null);
-    if (typeof window !== "undefined" && window.location.hash.startsWith("#blog/")) {
+    if (
+      typeof window !== "undefined" &&
+      window.location.hash.startsWith("#blog/")
+    ) {
       window.history.pushState(null, "", window.location.pathname);
     }
   };
@@ -178,174 +181,174 @@ export default function BlogModal({ posts }: BlogModalProps) {
           aria-modal="true"
           aria-labelledby="modal-title"
         >
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
-        onClick={closeModal}
-      />
-
-      {/* Modal Content */}
-      <div className="flex min-h-full items-center justify-center p-4 sm:p-6 md:p-8">
-        <div className="relative w-full max-w-4xl rounded-3xl bg-white shadow-2xl transition-all">
-          {/* Close Button */}
-          <button
-            type="button"
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
             onClick={closeModal}
-            className="absolute right-4 top-4 z-10 rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200"
-            aria-label="Close modal"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-6 text-gray-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+          />
 
-          {/* Reading Tools */}
-          <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full bg-gray-100 p-2">
-            {/* Font Size Controls */}
-            <button
-              type="button"
-              onClick={decreaseFontSize}
-              className="rounded-full p-2 transition-colors hover:bg-gray-200"
-              aria-label="Decrease font size"
-              title="Decrease font size"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="pointer-events-none size-5 text-gray-700"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+          {/* Modal Content */}
+          <div className="flex min-h-full items-center justify-center p-4 sm:p-6 md:p-8">
+            <div className="relative w-full max-w-4xl rounded-3xl bg-white shadow-2xl transition-all">
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={closeModal}
+                className="absolute right-4 top-4 z-10 rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200"
+                aria-label="Close modal"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M20 12H4"
-                />
-              </svg>
-            </button>
-            <span className="w-8 text-center text-sm font-medium text-gray-700">
-              A
-            </span>
-            <button
-              type="button"
-              onClick={increaseFontSize}
-              className="rounded-full p-2 transition-colors hover:bg-gray-200"
-              aria-label="Increase font size"
-              title="Increase font size"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="pointer-events-none size-5 text-gray-700"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 4v16m8-8H4"
-                />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-6 text-gray-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
 
-            <div className="h-6 w-px bg-gray-300" />
+              {/* Reading Tools */}
+              <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full bg-gray-100 p-2">
+                {/* Font Size Controls */}
+                <button
+                  type="button"
+                  onClick={decreaseFontSize}
+                  className="rounded-full p-2 transition-colors hover:bg-gray-200"
+                  aria-label="Decrease font size"
+                  title="Decrease font size"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="pointer-events-none size-5 text-gray-700"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M20 12H4"
+                    />
+                  </svg>
+                </button>
+                <span className="w-8 text-center text-sm font-medium text-gray-700">
+                  A
+                </span>
+                <button
+                  type="button"
+                  onClick={increaseFontSize}
+                  className="rounded-full p-2 transition-colors hover:bg-gray-200"
+                  aria-label="Increase font size"
+                  title="Increase font size"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="pointer-events-none size-5 text-gray-700"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </button>
 
-            {/* Font Family Controls */}
-            <button
-              type="button"
-              onClick={() => setFontFamily("sans")}
-              className={`rounded-full px-3 py-2 text-sm font-medium 
+                <div className="h-6 w-px bg-gray-300" />
+
+                {/* Font Family Controls */}
+                <button
+                  type="button"
+                  onClick={() => setFontFamily("sans")}
+                  className={`rounded-full px-3 py-2 text-sm font-medium 
                 transition-colors ${
                   fontFamily === "sans"
                     ? "bg-gray-700 text-white"
                     : "hover:bg-gray-200"
                 }`}
-              title="Sans-serif font"
-            >
-              Sans
-            </button>
-            <button
-              type="button"
-              onClick={() => setFontFamily("serif")}
-              className={`rounded-full px-3 py-2 text-sm font-medium 
+                  title="Sans-serif font"
+                >
+                  Sans
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFontFamily("serif")}
+                  className={`rounded-full px-3 py-2 text-sm font-medium 
                 transition-colors ${
                   fontFamily === "serif"
                     ? "bg-gray-700 text-white"
                     : "hover:bg-gray-200"
                 }`}
-              title="Serif font"
-            >
-              Serif
-            </button>
-            <button
-              type="button"
-              onClick={() => setFontFamily("mono")}
-              className={`rounded-full px-3 py-2 font-mono text-sm 
+                  title="Serif font"
+                >
+                  Serif
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFontFamily("mono")}
+                  className={`rounded-full px-3 py-2 font-mono text-sm 
                 transition-colors ${
                   fontFamily === "mono"
                     ? "bg-gray-700 text-white"
                     : "hover:bg-gray-200"
                 }`}
-              title="Monospace font"
-            >
-              Mono
-            </button>
-          </div>
+                  title="Monospace font"
+                >
+                  Mono
+                </button>
+              </div>
 
-          {/* Content Container */}
-          <div
-            className={`max-h-[85vh] overflow-y-auto p-6 pt-20 sm:p-8 
+              {/* Content Container */}
+              <div
+                className={`max-h-[85vh] overflow-y-auto p-6 pt-20 sm:p-8 
               md:p-12 ${fontFamilyClass}`}
-            style={{
-              fontSize: `${fontSize}px`,
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-              WebkitOverflowScrolling: "touch",
-            }}
-          >
-            {currentPost && (
-              <>
-                <header className="mb-xl">
-                  <h1 id="modal-title" className="mb-md text-5xl font-bold">
-                    {currentPost.title}
-                  </h1>
-                  {currentPost.description && (
-                    <p className="mb-md text-xl text-gray-700">
-                      {currentPost.description}
-                    </p>
-                  )}
-                  <div className="flex gap-md text-sm text-gray-600">
-                    <time dateTime={currentPost.date}>
-                      {currentPost.formattedDate}
-                    </time>
-                    <span>·</span>
-                    <span>{currentPost.author}</span>
-                  </div>
-                </header>
-                <div
-                  className="prose prose-lg max-w-none"
-                  dangerouslySetInnerHTML={{
-                    __html: getContentHtml(currentPost.slug),
-                  }}
-                />
-              </>
-            )}
+                style={{
+                  fontSize: `${fontSize}px`,
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                  WebkitOverflowScrolling: "touch",
+                }}
+              >
+                {currentPost && (
+                  <>
+                    <header className="mb-xl">
+                      <h1 id="modal-title" className="mb-md text-5xl font-bold">
+                        {currentPost.title}
+                      </h1>
+                      {currentPost.description && (
+                        <p className="mb-md text-xl text-gray-700">
+                          {currentPost.description}
+                        </p>
+                      )}
+                      <div className="flex gap-md text-sm text-gray-600">
+                        <time dateTime={currentPost.date}>
+                          {currentPost.formattedDate}
+                        </time>
+                        <span>·</span>
+                        <span>{currentPost.author}</span>
+                      </div>
+                    </header>
+                    <div
+                      className="prose prose-lg max-w-none"
+                      dangerouslySetInnerHTML={{
+                        __html: getContentHtml(currentPost.slug),
+                      }}
+                    />
+                  </>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
           <style>{`
             .modal-scrollbar::-webkit-scrollbar {
@@ -357,4 +360,3 @@ export default function BlogModal({ posts }: BlogModalProps) {
     </>
   );
 }
-

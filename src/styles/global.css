@@ -278,7 +278,8 @@
   font-family: "Playfair Display";
   src:
     local("Playfair Display"),
-    url("/fonts/Playfair/PlayfairDisplay-ExtraBoldItalic.ttf") format("truetype");
+    url("/fonts/Playfair/PlayfairDisplay-ExtraBoldItalic.ttf")
+      format("truetype");
   font-weight: 800;
   font-style: italic;
   font-display: swap;
@@ -306,7 +307,9 @@
 
 /* CSS Variables */
 :root {
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
   --font-heading: "Playfair Display", Georgia, "Times New Roman", Times, serif;
   --bg-theme: #ffffff;
 }
