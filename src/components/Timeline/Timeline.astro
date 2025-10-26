@@ -3,7 +3,8 @@ import TimelineItem from "./TimelineItem.astro";
 
 interface TimelineItemData {
   title: string;
-  description: string;
+  subtitle?: string;
+  description: string | string[];
   isCurrent?: boolean;
 }
 

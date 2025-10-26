@@ -2,10 +2,10 @@
 import { getCollection } from "astro:content";
 import RootLayout from "@/layouts/RootLayout.astro";
 import SectionCard from "@/components/SectionCard.astro";
-import Nav from "@/components/Nav.astro";
 import Timeline from "@/components/Timeline/Timeline.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import BlogModal from "@/components/react/BlogModal";
+import { Icon } from "astro-icon/components";
 
 const allPosts = await getCollection("blog");
 const latestPosts = allPosts
@@ -45,43 +45,83 @@ const renderedPosts = await Promise.all(
     <SectionCard id="about">
       <h2>Hi there, I'm Gabriella</h2>
       <p class="text-xl">
-        I'm living my dream fighting corruption, ensuring states independence/
-        self suffiency not in depedency - strengthening communities through
-        grassroots.
+        I’m a policy researcher in international political economy who is
+        passionate about translating complex papers into digestible forms of
+        media, whether it's reports or social content. I focus on projects that
+        connect people, community, institutions and the environment.
       </p>
-    </SectionCard>
-    <SectionCard>
-      <h2>Bio</h2>
-      <p>A short bio on me. Where I'm from, where I studied where I am now</p>
     </SectionCard>
     <SectionCard id="education">
       <h2>Education</h2>
       <Timeline
         items={[
           {
-            title: "University name",
-            description: "Description of what I studied",
+            title: "Advanced MSc in International Relations and Diplomacy",
+            subtitle:
+              "Leiden University and Clingendael Institute | Sept 2025 – 2027 | The Hague, NL",
+            description: [
+              "Thesis: investigating how structural biases and corruptive tendencies affect decision-making processes in multilateral organisations",
+              "Presented on UN Women's role in Afghanistan and its multilateral limitations (8.5)",
+              "Active participant in Model United Nations, representing member states in debates, negotiations, lobbying, and resolution drafting, including participation in the Madrid conference",
+            ],
             isCurrent: true,
           },
           {
-            title: "University name",
-            description: "Description of what I studied",
-          },
-          {
-            title: "University name",
-            description: "Description of what I studied",
+            title: "Bachelor of Arts and Advanced Studies",
+            subtitle:
+              "Politics and International Relations | Political Economy\nUniversity of Sydney | Feb 2021 – Dec 2024",
+            description: [
+              "Assessed potential limitations of market-based mechanisms in achieving sustainability (HD, 88)",
+              "Developed comprehensive policy brief on Australia's waste management system (HD, 85)",
+            ],
           },
         ]}
       />
     </SectionCard>
     <SectionCard id="experience">
       <h2>My Work</h2>
-      <strong>Project name</strong>
-      <p>Description of what I did</p>
-      <strong>Project name</strong>
-      <p>Description of what I did</p>
-      <strong>Project name</strong>
-      <p>Description of what I did</p>
+      <Timeline
+        items={[
+          {
+            title: "Director",
+            subtitle:
+              "Geophytes - geophytes.com | Sept 2024 - Present, Sydney, NSW",
+            description: [
+              "Created media campaigns at Geophytes, a grassroots organisation using storytelling to advance climate action and human rights through community engagement",
+              "Led research and stakeholder participation for the Muswellbrook documentary project, which analysed community perspectives on the clean energy transition while maintaining editorial neutrality",
+              "Developed advocacy strategies for sustainable economic transition, that coordinated with local government and community stakeholders to establish practical support programs",
+            ],
+            isCurrent: true,
+          },
+          {
+            title: "Disability Support Practitioner",
+            subtitle:
+              "Cerebral Palsy Alliance | Feb 2025 - Aug 2025, Sydney, NSW",
+            description: [
+              "Advocated for clients to build independence while providing personalised support through daily assistance, medication management, and the use of specialised equipment",
+              "Monitored client well-being, documented progress outcomes, and collaborated with cross-functional teams to ensure effective, person-centered support",
+            ],
+          },
+          {
+            title: "Partnerships Associate",
+            subtitle:
+              "Institute for Economics and Peace | Jan 2024 - May 2024, Sydney, NSW",
+            description: [
+              "Developed and coordinated tailored workshops for diverse groups, including grassroots and emerging leaders, and strategic partners such as the NRL, PCYC, and IEP Ambassadors",
+              "Reviewed and evaluated grant applications, providing constructive feedback and editorial improvements",
+              "Published accessible articles on Peace Ambassador programs while overseeing their implementation, demonstrating strong communication and program management skills",
+            ],
+          },
+          {
+            title: "USYD Industry and Community Project - Consultant Trainee",
+            subtitle: "Jacobs Engineering | Aug 2023 - Nov 2023, Sydney, NSW",
+            description: [
+              "Collaborated on socially responsible projects that addressed job transitions, community engagement, and adverse socioeconomic impacts, demonstrating expertise in community development",
+              "Identified and proposed scalable strategies aligning renewable projects with local ecosystems",
+            ],
+          },
+        ]}
+      />
     </SectionCard>
     <SectionCard id="writing">
       <h2>Blog</h2>
@@ -93,43 +133,96 @@ const renderedPosts = await Promise.all(
               description={post.data.description}
               date={post.data.date}
               slug={post.slug}
+              content={post.body}
             />
           ))
         }
       </div>
-      <a
-        href="/blog"
-        class="inline-block text-blue-600 hover:text-blue-800 font-medium"
-      >
-        View all posts →
-      </a>
+    </SectionCard>
+    <SectionCard id="reading">
+      <h2>Reading List</h2>
+      <div class="space-y-md">
+        <div>
+          <strong class="text-lg"
+            >Dependency and Development in Latin America</strong
+          >
+          <p class="text-gray-600 dark:text-gray-400">
+            by Fernando Henrique Cardoso and Enzo Faletto
+          </p>
+        </div>
+        <div>
+          <strong class="text-lg">Business Power in Global Governance</strong>
+          <p class="text-gray-600 dark:text-gray-400">by Doris Fuchs</p>
+        </div>
+        <div>
+          <strong class="text-lg">Homo Deus</strong>
+          <p class="text-gray-600 dark:text-gray-400">by Yuval Noah Harari</p>
+        </div>
+        <div>
+          <strong class="text-lg">Lessons from the 21st century</strong>
+          <p class="text-gray-600 dark:text-gray-400">by Yuval Noah Harari</p>
+        </div>
+        <div>
+          <strong class="text-lg">Plunkitt of Tammany Hall</strong>
+          <p class="text-gray-600 dark:text-gray-400">
+            A Series of Very Plain Talks on Very Practical Politics by William
+            L. Riordon
+          </p>
+        </div>
+      </div>
     </SectionCard>
     <SectionCard id="skills">
       <h2>Skills</h2>
-      <p>Coming soon. A place where I can show off my ideas</p>
-      <!-- TODO: Is there a substack API for the CMS? -->
+      <div class="space-y-md">
+        <div>
+          <strong class="text-lg">Data Analysis, SQL and R (Programming)</strong
+          >
+        </div>
+        <div>
+          <strong class="text-lg">Negotiation</strong>
+        </div>
+        <div>
+          <strong class="text-lg">Article Writing</strong>
+        </div>
+        <div>
+          <strong class="text-lg">Research</strong>
+        </div>
+        <div>
+          <strong class="text-lg">Languages</strong>
+          <p class="text-gray-600 dark:text-gray-400">
+            Fluent in English, Portuguese and French (basic professional)
+          </p>
+        </div>
+      </div>
     </SectionCard>
     <SectionCard id="contact">
       <h2>Contact</h2>
-      <p>Coming soon. A place where I can show off my ideas</p>
-      <!-- TODO: Is there a substack API for the CMS? -->
+      <a
+        href="https://www.linkedin.com/in/gabriella-martins-cardoso"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-md py-sm bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 no-underline"
+      >
+        <Icon name="linkedin" class="w-5 h-5" />
+        Contact me on LinkedIn
+      </a>
     </SectionCard>
   </div>
-
-  <!-- Hidden server-rendered blog content -->
-  <div id="blog-content-store" class="hidden">
-    {
-      renderedPosts.map(({ slug, Content }) => (
-        <div id={`blog-content-${slug}`} class="prose prose-lg max-w-none">
-          <Content />
-        </div>
-      ))
-    }
-  </div>
-
-  <!-- Blog Modal - React Component -->
-  <BlogModal client:only="react" posts={postsData} />
 </RootLayout>
+
+<!-- Hidden server-rendered blog content -->
+<div id="blog-content-store" class="hidden">
+  {
+    renderedPosts.map(({ slug, Content }) => (
+      <div id={`blog-content-${slug}`} class="prose prose-lg max-w-none">
+        <Content />
+      </div>
+    ))
+  }
+</div>
+
+<!-- Blog Modal - React Component -->
+<BlogModal client:only="react" posts={postsData} />
 
 <style>
   p:last-child {

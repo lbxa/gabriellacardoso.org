@@ -1,13 +1,15 @@
 ---
 interface Props {
   title: string;
-  description: string;
+  subtitle?: string;
+  description: string | string[];
   isCurrent?: boolean;
 }
-const { title, description, isCurrent = false } = Astro.props;
+const { title, subtitle, description, isCurrent = false } = Astro.props;
+const isArray = Array.isArray(description);
 ---
 
-<div class="flex gap-6 relative">
+<div class="flex gap-8 md:gap-10 relative">
   <div class="flex flex-col items-center flex-shrink-0">
     <div
       class={`w-5 h-5 rounded-full border-[3px] transition-none ${
@@ -18,11 +20,26 @@ const { title, description, isCurrent = false } = Astro.props;
     >
     </div>
   </div>
-  <div class="pb-10 flex-1 -mt-0.5">
+  <div class="pb-8 md:pb-10 flex-1 -mt-0.5">
     <strong class="text-lg block mb-1 leading-tight">{title}</strong>
-    <p class="text-gray-700 dark:text-gray-300 m-0 transition-none">
-      {description}
-    </p>
+    {
+      subtitle && (
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 transition-none">
+          {subtitle}
+        </p>
+      )
+    }
+    {
+      isArray ? (
+        <ul class="list-disc list-outside ml-5 space-y-1.5 text-gray-800 transition-none">
+          {description.map((item) => (
+            <li class="leading-relaxed">{item}</li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-gray-800 m-0 transition-none">{description}</p>
+      )
+    }
   </div>
 </div>
 

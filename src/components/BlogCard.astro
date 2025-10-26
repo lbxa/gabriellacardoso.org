@@ -1,35 +1,43 @@
 ---
+import { calculateReadTime } from "@/utils";
+
 interface Props {
   title: string;
   description?: string;
   date: Date;
   slug: string;
+  content: string;
 }
 
-const { title, description, date, slug } = Astro.props;
+const { title, description, date, slug, content } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
   month: "long",
   day: "numeric",
 }).format(date);
+
+const readTime = calculateReadTime(content);
 ---
 
 <a
   href={`/blog/${slug}`}
   data-blog-slug={slug}
-  class="group block bg-white/60 backdrop-blur-lg rounded-3xl p-lg border-2 border-transparent hover:border-gray-900 transition-all duration-200 no-underline"
+  class="group block bg-white/60 backdrop-blur-lg rounded-3xl py-lg px-0 md:px-lg border-2 border-transparent md:hover:border-gray-900 transition-all duration-200 no-underline"
 >
   <article class="space-y-3">
-    <time
-      datetime={date.toISOString()}
-      class="text-sm font-medium text-gray-500 uppercase tracking-wide"
-    >
-      {formattedDate}
-    </time>
     <h3 class="text-2xl font-bold text-gray-900">
       {title}
     </h3>
+    <div
+      class="flex items-center gap-2 text-sm font-medium text-gray-500 uppercase tracking-wide"
+    >
+      <time datetime={date.toISOString()}>
+        {formattedDate}
+      </time>
+      <span>·</span>
+      <span>{readTime} min read</span>
+    </div>
     {
       description && (
         <p class="text-gray-700 line-clamp-3 leading-relaxed">{description}</p>

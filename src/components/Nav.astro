@@ -6,14 +6,15 @@ const navItems = [
   { href: "#education", label: "Education" },
   { href: "#experience", label: "Experience" },
   { href: "#writing", label: "Writing" },
+  { href: "#reading", label: "Reading List" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
 ---
 
-<nav class="bg-white dark:bg-theme z-50 border-b py-sm">
+<nav class="bg-white dark:bg-theme z-50 border-b py-sm md:py-md">
   <ul
-    class="flex flex-col md:flex-row justify-center items-center gap-sm md:gap-md list-none m-0 p-0"
+    class="flex flex-col md:flex-row justify-center items-center gap-md md:gap-lg list-none m-0 p-0"
   >
     {navItems.map((item) => <NavItem href={item.href} label={item.label} />)}
   </ul>

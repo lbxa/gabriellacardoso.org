@@ -37,12 +37,15 @@ export default {
       },
       spacing: {
         xs: "0.25rem", // 4px / 16 = 0.25rem
-        sm: "0.5rem", // 8px / 16 = 0.5rem
-        md: "0.75rem", // 12px / 16 = 0.75rem
-        lg: "1rem", // 16px / 16 = 1rem
-        xl: "1.5rem", // 24px / 16 = 1.5rem
-        "2xl": "2rem", // 32px / 16 = 2rem
-        "3xl": "3rem", // 48px / 16 = 3rem
+        sm: "0.75rem", // 12px / 16 = 0.75rem
+        md: "1rem", // 16px / 16 = 1rem
+        lg: "1.5rem", // 24px / 16 = 1.5rem
+        xl: "2rem", // 32px / 16 = 2rem
+        "2xl": "3rem", // 48px / 16 = 3rem
+        "3xl": "4rem", // 64px / 16 = 4rem
+        "4xl": "5rem", // 80px / 16 = 5rem
+        "5xl": "6rem", // 96px / 16 = 6rem
+        "6xl": "8rem", // 128px / 16 = 8rem
       },
     },
   },

@@ -391,7 +391,7 @@ h3 {
 }
 
 h4 {
-  @apply text-xl my-sm;
+  @apply text-xl my-md;
   font-family: var(--font-heading);
 }
 
@@ -496,7 +496,7 @@ th {
 }
 
 section {
-  @apply mb-xl;
+  @apply mb-2xl;
 }
 
 /* Accessibility */
