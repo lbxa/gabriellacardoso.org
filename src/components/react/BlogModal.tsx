@@ -22,9 +22,9 @@ export default function BlogModal({ posts }: BlogModalProps) {
   );
   const [mounted, setMounted] = useState(false);
 
-  const MIN_FONT_SIZE = 14;
-  const MAX_FONT_SIZE = 24;
-  const FONT_SIZE_STEP = 2;
+  const FONT_SIZE_SMALL = 14;
+  const FONT_SIZE_MEDIUM = 18;
+  const FONT_SIZE_LARGE = 24;
 
   // Only run client-side
   useEffect(() => {
@@ -151,16 +151,8 @@ export default function BlogModal({ posts }: BlogModalProps) {
     return null;
   }
 
-  const increaseFontSize = () => {
-    if (fontSize < MAX_FONT_SIZE) {
-      setFontSize((prev) => prev + FONT_SIZE_STEP);
-    }
-  };
-
-  const decreaseFontSize = () => {
-    if (fontSize > MIN_FONT_SIZE) {
-      setFontSize((prev) => prev - FONT_SIZE_STEP);
-    }
+  const setFontSizePreset = (size: number) => {
+    setFontSize(size);
   };
 
   const currentPost = posts.find((post) => post.slug === currentSlug);
@@ -194,7 +186,7 @@ export default function BlogModal({ posts }: BlogModalProps) {
               <button
                 type="button"
                 onClick={closeModal}
-                className="absolute right-4 top-4 z-10 rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200"
+                className="absolute right-4 top-4 z-10 rounded-full bg-gray-100/80 p-2 backdrop-blur-sm transition-colors hover:bg-gray-200"
                 aria-label="Close modal"
               >
                 <svg
@@ -214,57 +206,52 @@ export default function BlogModal({ posts }: BlogModalProps) {
               </button>
 
               {/* Reading Tools */}
-              <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full bg-gray-100 p-2">
+              <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full bg-gray-100/80 p-2 backdrop-blur-sm">
                 {/* Font Size Controls */}
-                <button
+                {/* <button
                   type="button"
-                  onClick={decreaseFontSize}
-                  className="rounded-full p-2 transition-colors hover:bg-gray-200"
-                  aria-label="Decrease font size"
-                  title="Decrease font size"
+                  onClick={() => setFontSizePreset(FONT_SIZE_SMALL)}
+                  className={`flex size-10 items-center justify-center 
+                  rounded-full text-xs font-medium transition-colors ${
+                    fontSize === FONT_SIZE_SMALL
+                      ? "bg-gray-700 text-white"
+                      : "hover:bg-gray-200"
+                  }`}
+                  aria-label="Small font size"
+                  title="Small font size"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="pointer-events-none size-5 text-gray-700"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M20 12H4"
-                    />
-                  </svg>
-                </button>
-                <span className="w-8 text-center text-sm font-medium text-gray-700">
                   A
-                </span>
+                </button>
                 <button
                   type="button"
-                  onClick={increaseFontSize}
-                  className="rounded-full p-2 transition-colors hover:bg-gray-200"
-                  aria-label="Increase font size"
-                  title="Increase font size"
+                  onClick={() => setFontSizePreset(FONT_SIZE_MEDIUM)}
+                  className={`flex size-10 items-center justify-center 
+                  rounded-full text-base font-medium transition-colors ${
+                    fontSize === FONT_SIZE_MEDIUM
+                      ? "bg-gray-700 text-white"
+                      : "hover:bg-gray-200"
+                  }`}
+                  aria-label="Medium font size"
+                  title="Medium font size"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="pointer-events-none size-5 text-gray-700"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 4v16m8-8H4"
-                    />
-                  </svg>
+                  A
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFontSizePreset(FONT_SIZE_LARGE)}
+                  className={`flex size-10 items-center justify-center 
+                  rounded-full text-xl font-medium transition-colors ${
+                    fontSize === FONT_SIZE_LARGE
+                      ? "bg-gray-700 text-white"
+                      : "hover:bg-gray-200"
+                  }`}
+                  aria-label="Large font size"
+                  title="Large font size"
+                >
+                  A
                 </button>
 
-                <div className="h-6 w-px bg-gray-300" />
+                <div className="h-6 w-px bg-gray-300" /> */}
 
                 {/* Font Family Controls */}
                 <button
@@ -283,8 +270,8 @@ export default function BlogModal({ posts }: BlogModalProps) {
                 <button
                   type="button"
                   onClick={() => setFontFamily("serif")}
-                  className={`rounded-full px-3 py-2 text-sm font-medium 
-                transition-colors ${
+                  className={`rounded-full px-3 py-2 font-serif text-sm
+                font-medium transition-colors ${
                   fontFamily === "serif"
                     ? "bg-gray-700 text-white"
                     : "hover:bg-gray-200"
@@ -313,7 +300,6 @@ export default function BlogModal({ posts }: BlogModalProps) {
                 className={`max-h-[85vh] overflow-y-auto p-6 pt-20 sm:p-8 
               md:p-12 ${fontFamilyClass}`}
                 style={{
-                  fontSize: `${fontSize}px`,
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
                   WebkitOverflowScrolling: "touch",
@@ -339,7 +325,8 @@ export default function BlogModal({ posts }: BlogModalProps) {
                       </div>
                     </header>
                     <div
-                      className="prose prose-lg max-w-none"
+                      className="prose max-w-none"
+                      style={{ fontSize: `${fontSize}px` }}
                       dangerouslySetInnerHTML={{
                         __html: getContentHtml(currentPost.slug),
                       }}
