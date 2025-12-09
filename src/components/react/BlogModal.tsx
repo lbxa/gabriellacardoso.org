@@ -22,9 +22,9 @@ export default function BlogModal({ posts }: BlogModalProps) {
   );
   const [mounted, setMounted] = useState(false);
 
-  const FONT_SIZE_SMALL = 14;
-  const FONT_SIZE_MEDIUM = 18;
-  const FONT_SIZE_LARGE = 24;
+  // const FONT_SIZE_SMALL = 14;
+  // const FONT_SIZE_MEDIUM = 18;
+  // const FONT_SIZE_LARGE = 24;
 
   // Only run client-side
   useEffect(() => {
@@ -150,10 +150,6 @@ export default function BlogModal({ posts }: BlogModalProps) {
   if (!mounted) {
     return null;
   }
-
-  const setFontSizePreset = (size: number) => {
-    setFontSize(size);
-  };
 
   const currentPost = posts.find((post) => post.slug === currentSlug);
 
@@ -297,8 +293,8 @@ export default function BlogModal({ posts }: BlogModalProps) {
 
               {/* Content Container */}
               <div
-                className={`max-h-[85vh] overflow-y-auto p-6 pt-20 sm:p-8 
-              md:p-12 ${fontFamilyClass}`}
+                className={`max-h-[85vh] overflow-y-auto px-6 py-12 pt-24 
+                sm:px-10 sm:py-16 md:px-16 md:py-20 ${fontFamilyClass}`}
                 style={{
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
@@ -307,16 +303,20 @@ export default function BlogModal({ posts }: BlogModalProps) {
               >
                 {currentPost && (
                   <>
-                    <header className="mb-xl">
-                      <h1 id="modal-title" className="mb-md text-5xl font-bold">
+                    <header className="mb-16">
+                      <h1
+                        id="modal-title"
+                        className="mb-6 text-4xl font-bold leading-[1.15] 
+                        sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.15]"
+                      >
                         {currentPost.title}
                       </h1>
                       {currentPost.description && (
-                        <p className="mb-md text-xl text-gray-700">
+                        <p className="mb-md text-xl sm:text-2xl leading-relaxed text-gray-700">
                           {currentPost.description}
                         </p>
                       )}
-                      <div className="flex gap-md text-sm text-gray-600">
+                      <div className="flex gap-md text-base text-gray-600">
                         <time dateTime={currentPost.date}>
                           {currentPost.formattedDate}
                         </time>
@@ -325,7 +325,7 @@ export default function BlogModal({ posts }: BlogModalProps) {
                       </div>
                     </header>
                     <div
-                      className="prose max-w-none"
+                      className="prose prose-lg max-w-none"
                       style={{ fontSize: `${fontSize}px` }}
                       dangerouslySetInnerHTML={{
                         __html: getContentHtml(currentPost.slug),

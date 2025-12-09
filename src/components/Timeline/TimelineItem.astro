@@ -15,7 +15,7 @@ const isArray = Array.isArray(description);
       class={`w-5 h-5 rounded-full border-[3px] transition-none ${
         isCurrent
           ? "border-theme bg-theme animate-pulse-dot"
-          : "border-gray-400 bg-white dark:bg-gray-800"
+          : "border-gray-600 bg-white dark:bg-gray-800"
       }`}
     >
     </div>
@@ -24,7 +24,7 @@ const isArray = Array.isArray(description);
     <strong class="text-lg block mb-1 leading-tight">{title}</strong>
     {
       subtitle && (
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 transition-none">
+        <p class="text-sm text-gray-600 dark:text-gray-600 mb-2 transition-none">
           {subtitle}
         </p>
       )

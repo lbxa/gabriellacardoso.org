@@ -6,6 +6,9 @@ import Timeline from "@/components/Timeline/Timeline.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import BlogModal from "@/components/react/BlogModal";
 import { Icon } from "astro-icon/components";
+import Figure from "@/components/Figure.astro";
+import gabby1 from "@/assets/images/gabby-1.webp";
+import gabby2 from "@/assets/images/gabby-2.webp";
 
 const allPosts = await getCollection("blog");
 const latestPosts = allPosts
@@ -43,8 +46,16 @@ const renderedPosts = await Promise.all(
   <!-- <Nav /> -->
   <div class="flex flex-col">
     <SectionCard id="about">
+      <div class="flex flex-col md:flex-row gap-md h-64 md:h-80">
+        <Figure
+          src={gabby1}
+          alt="Gabriella Cardoso"
+          class="flex-1 my-0"
+          imageClass="w-full h-full object-cover"
+        />
+      </div>
       <h2>Hi there, I'm Gabriella</h2>
-      <p class="text-xl">
+      <p class="text-xl mt-lg">
         I’m a policy researcher in international political economy who is
         passionate about translating complex papers into digestible forms of
         media, whether it's reports or social content. I focus on projects that
@@ -201,10 +212,16 @@ const renderedPosts = await Promise.all(
         href="https://www.linkedin.com/in/gabriella-martins-cardoso"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-md py-sm bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 no-underline"
+        class="group inline-flex items-center gap-3 text-gray-900 no-underline"
       >
         <Icon name="linkedin" class="w-5 h-5" />
-        Contact me on LinkedIn
+        <span class="font-medium border-b border-gray-900 pb-0.5"
+          >Connect on LinkedIn</span
+        >
+        <span
+          class="group-hover:translate-x-1 transition-transform duration-200"
+          >→</span
+        >
       </a>
     </SectionCard>
   </div>

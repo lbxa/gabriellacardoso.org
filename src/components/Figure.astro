@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  loading?: "lazy" | "eager";
+  class?: string;
+  imageClass?: string;
+}
+
+const {
+  src,
+  alt,
+  caption,
+  width,
+  height,
+  loading = "lazy",
+  class: className,
+  imageClass,
+} = Astro.props;
+---
+
+<figure class:list={["mx-auto my-md", className]}>
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    class:list={["mx-auto", imageClass]}
+  />
+  {
+    caption && (
+      <figcaption class="text-gray-700 dark:text-gray-600 text-sm text-center mt-sm italic">
+        {caption}
+      </figcaption>
+    )
+  }
+</figure>
