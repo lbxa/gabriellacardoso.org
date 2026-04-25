@@ -134,54 +134,58 @@ const renderedPosts = await Promise.all(
         ]}
       />
     </SectionCard>
-    <SectionCard id="writing">
-      <h2>Blog</h2>
-      <div class="grid gap-md mb-md">
-        {
-          latestPosts.map((post) => (
-            <BlogCard
-              title={post.data.title}
-              description={post.data.description}
-              date={post.data.date}
-              slug={post.slug}
-              content={post.body}
-            />
-          ))
-        }
-      </div>
-    </SectionCard>
-    <SectionCard id="reading">
-      <h2>Reading List</h2>
-      <div class="space-y-md">
-        <div>
-          <strong class="text-lg"
-            >Dependency and Development in Latin America</strong
-          >
-          <p class="text-gray-600 dark:text-gray-400">
-            by Fernando Henrique Cardoso and Enzo Faletto
-          </p>
+    {/*
+      <SectionCard id="writing">
+        <h2>Blog</h2>
+        <div class="grid gap-md mb-md">
+          {
+            latestPosts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.date}
+                slug={post.slug}
+                content={post.body}
+              />
+            ))
+          }
         </div>
-        <div>
-          <strong class="text-lg">Business Power in Global Governance</strong>
-          <p class="text-gray-600 dark:text-gray-400">by Doris Fuchs</p>
+      </SectionCard>
+    */}
+    {/*
+      <SectionCard id="reading">
+        <h2>Reading List</h2>
+        <div class="space-y-md">
+          <div>
+            <strong class="text-lg"
+              >Dependency and Development in Latin America</strong
+            >
+            <p class="text-gray-600 dark:text-gray-400">
+              by Fernando Henrique Cardoso and Enzo Faletto
+            </p>
+          </div>
+          <div>
+            <strong class="text-lg">Business Power in Global Governance</strong>
+            <p class="text-gray-600 dark:text-gray-400">by Doris Fuchs</p>
+          </div>
+          <div>
+            <strong class="text-lg">Homo Deus</strong>
+            <p class="text-gray-600 dark:text-gray-400">by Yuval Noah Harari</p>
+          </div>
+          <div>
+            <strong class="text-lg">Lessons from the 21st century</strong>
+            <p class="text-gray-600 dark:text-gray-400">by Yuval Noah Harari</p>
+          </div>
+          <div>
+            <strong class="text-lg">Plunkitt of Tammany Hall</strong>
+            <p class="text-gray-600 dark:text-gray-400">
+              A Series of Very Plain Talks on Very Practical Politics by William
+              L. Riordon
+            </p>
+          </div>
         </div>
-        <div>
-          <strong class="text-lg">Homo Deus</strong>
-          <p class="text-gray-600 dark:text-gray-400">by Yuval Noah Harari</p>
-        </div>
-        <div>
-          <strong class="text-lg">Lessons from the 21st century</strong>
-          <p class="text-gray-600 dark:text-gray-400">by Yuval Noah Harari</p>
-        </div>
-        <div>
-          <strong class="text-lg">Plunkitt of Tammany Hall</strong>
-          <p class="text-gray-600 dark:text-gray-400">
-            A Series of Very Plain Talks on Very Practical Politics by William
-            L. Riordon
-          </p>
-        </div>
-      </div>
-    </SectionCard>
+      </SectionCard>
+    */}
     <SectionCard id="skills">
       <h2>Skills</h2>
       <div class="space-y-md">
